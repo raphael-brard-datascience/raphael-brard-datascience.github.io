@@ -3,12 +3,11 @@ import '../styles/global.css';
 // Politique de sécurité (GitHub Pages ne permet pas d'en-têtes HTTP : on utilise la balise meta).
 const csp = [
   "default-src 'self'",
-  "script-src 'self' https://hcaptcha.com https://*.hcaptcha.com",
+  "script-src 'self' https://web3forms.com https://hcaptcha.com https://*.hcaptcha.com",
   "style-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com",
   "img-src 'self' data: https://hcaptcha.com https://*.hcaptcha.com",
   "frame-src https://hcaptcha.com https://*.hcaptcha.com",
-  "connect-src 'self' https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com",
-  "form-action https://api.web3forms.com",
+  "connect-src 'self' https://web3forms.com https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com",
   "base-uri 'self'",
   "object-src 'none'",
 ].join('; ');
