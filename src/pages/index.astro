@@ -1,0 +1,209 @@
+---
+import '../styles/global.css';
+// Politique de sécurité (GitHub Pages ne permet pas d'en-têtes HTTP : on utilise la balise meta).
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' https://hcaptcha.com https://*.hcaptcha.com",
+  "style-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com",
+  "img-src 'self' data: https://hcaptcha.com https://*.hcaptcha.com",
+  "frame-src https://hcaptcha.com https://*.hcaptcha.com",
+  "connect-src 'self' https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com",
+  "form-action https://api.web3forms.com",
+  "base-uri 'self'",
+  "object-src 'none'",
+].join('; ');
+// À remplacer par l'adresse exacte de votre profil LinkedIn
+const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content={csp} />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Raphaël BRARD – Data scientist freelance</title>
+  <meta name="description" content="Data scientist freelance : de la compréhension du besoin à des modèles (clustering, classification, prédiction) compréhensibles et appropriables par les utilisateurs." />
+</head>
+<body>
+<header>
+  <nav aria-label="Navigation principale">
+    <a class="brand" href="#accueil">Raphaël BRARD – Data scientist freelance</a>
+    <a href="#services">Services</a>
+    <a href="#technologies">Technologies</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#contact">Contact</a>
+    <a href="#mentions-legales">Mentions légales</a>
+    <a class="social" href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Raphaël BRARD (nouvel onglet)">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="4" fill="currentColor"/><circle cx="6.6" cy="6.7" r="1.9" fill="#fff"/><rect x="4.8" y="9.6" width="3.6" height="9.4" fill="#fff"/><path d="M10 9.6h3.4v1.4c.5-.9 1.5-1.6 3.1-1.6 2.9 0 4 1.8 4 4.6V19H17v-4.7c0-1.2-.4-2-1.5-2-1.2 0-1.9.8-1.9 2V19H10z" fill="#fff"/></svg>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <section id="accueil" class="hero">
+    <div class="wrap two">
+      <div>
+        <p class="kicker">Raphaël BRARD – Data scientist freelance</p>
+        <h1>Pour des solutions data pertinentes, compréhensibles et appropriables par les utilisateurs</h1>
+        <p class="lead">Data scientist depuis plus de 5 ans, fort d'une expérience allant de la R&D (start-up E-Santé et Sanofi) à la création d'outils d'aide à la décision pour les collectivités territoriales. J'accompagne mes clients dans leurs projets data pour créer des outils personnalisés et adaptés à leurs besoins.</p>
+        <a class="cta" href="#contact">Me contacter</a>
+      </div>
+      <!-- Remplacer par votre photo ou une image : déposer le fichier dans public/images/ -->
+      <img class="photo" src="/images/hero.svg" alt="Photo de profil " width="640" height="480" />
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>Services</h2>
+      <p class="goal">Ma philosophie de travail repose sur une démarche en quatre temps, menée en étroite collaboration avec vous :</p>
+      <div class="grid four">
+        <div class="card"><span class="num">1</span><h3>Comprendre le besoin</h3><p>Définitions des problématiques que vous souhaitez explorer. Puis, à partir des données les plus pertinentes à votre disposition, nous établissons notre plan d'action.</p></div>
+        <div class="card"><span class="num">2</span><h3>Explorer les données</h3><p>Je réalise des analyses statistiques et de la data visualisation sur les données utilisées dans l'étude. Je vous présente ensuite les premières relations entre variables et les premières conclusions.</p></div>
+        <div class="card"><span class="num">3</span><h3>Modéliser</h3><p>Grâce à l'étape 2, on peut transformer les données pour en extraire toute l'information utile et développer des modèles pertinents pour le projet : clustering, classification ou prédiction.</p></div>
+        <div class="card"><span class="num">4</span><h3>Accompagner</h3><p>Pour finir, l'ensemble de ces étapes est réalisé en étroite collaboration avec vos équipes, afin que les méthodes et solutions proposées soient comprises et appropriées par vos utilisateurs finaux.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="technologies">
+    <div class="wrap">
+      <h2>Technologies utilisées</h2>
+      <p>J'utilise des outils adaptés à chaque étape du projet, et je documente et versionne mon travail pour que vos équipes puissent le reprendre et le faire évoluer. Mes outils principaux :</p>
+      <div class="grid four">
+        <div class="card">
+          <h3>Langages de programations et statistiques</h3>
+          <ul class="tech-ul">
+            <li>Python</li>
+            <li>R</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Gestion et traitement des données</h3>
+          <ul class="tech-ul">
+            <li>SQL</li>
+            <li>pandas / geopandas (Python)</li>
+            <li>dplyr / tidyr (R)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Création de rendus</h3>
+          <ul class="tech-ul">
+            <li>Shiny (applications interactives)</li>
+            <li>LaTeX (rapports et documents)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Versionnement et collaboration</h3>
+          <ul class="tech-ul">
+            <li>GitHub / GitLab</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="realisations">
+    <div class="wrap">
+      <h2>Réalisations</h2>
+
+      <h3 class="sub">Recherche &amp; développement</h3>
+      <div class="grid">
+        <article class="proj">
+          <img src="/images/mdpi.svg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <div>
+            <span class="badge">Article · Sensors, 2022</span>
+            <h3>Reconnaissance de l'activité de marche à partir d'un capteur IMU</h3>
+            <p>Cet article présente l'algorithme de reconnaissance de la marche que j'ai développé à partir de séries temporelles de rotation de la hanche, mesurées par un capteur IMU porté par des individus en conditions réelles.</p>
+            <a class="link" href="https://www.mdpi.com/1424-8220/22/9/3555" target="_blank" rel="noopener noreferrer">Lire l'article (MDPI Sensors)</a>
+          </div>
+        </article>
+        <article class="proj">
+          <img src="/images/ecco.svg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <div>
+            <span class="badge">Congrès · ECCO-JCC, 2023</span>
+            <h3>Suivi des trajectoires de rémission des patients selon les traitements</h3>
+            <p>Poster de notre étude utilisant des méthodes de clustering pour détecter des groupes de patients, en vie réelle, qui répondent de manière plus ou moins efficace aux différents traitements. Définition de notre nouveau score de super-répondeur.</p>
+            <a class="link" href="https://academic.oup.com/ecco-jcc/article/17/Supplement_1/i852/7010230" target="_blank" rel="noopener noreferrer">Voir le résumé du poster (ECCO-JCC, 2023)</a>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="sub">Aide à la décision</h3>
+      <div class="grid">
+        <article class="proj">
+          <img src="/images/canoe_malin.svg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <div>
+            <span class="badge">Outil en ligne</span>
+            <h3>Canoë Malin</h3>
+            <p>J'ai développé un outil de prédiction de l'affluence des différents parcours de canoë au sein du territoire des Gorges de l'Ardèche. Cela permet aux utilisateurs de choisir au mieux leur parcours en fonction de l'affluence prédite.</p>
+            <a class="link" href="https://www.gorges-ardeche-pontdarc.fr/canoe-malin/?zone=3#Carte_1" target="_blank" rel="noopener noreferrer">Voir l'outil</a><br />
+            <a class="link" href="https://www.youtube.com/watch?v=MJGLUoqzsRU" target="_blank" rel="noopener noreferrer">On parle de nous : Le Dauphiné Libéré (vidéo)</a>
+          </div>
+        </article>
+        <article class="proj">
+          <img src="/images/projet.svg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <div>
+            <span class="badge">Présentation</span>
+            <h3>Assises nationales des sites et espaces labellisés FFC 2026</h3>
+            <p>Présentation des derniers travaux réalisés en collaboration entre Outdoorvision et le Département de l'Isère sur la définition des typologies de pratiques de sport outdoor sur son territoire.</p>
+            <a class="link" href="https://new.sportsnconnect.com/client/events/4qfsy66EWSssnKdNAJaGPT-assises-nationales-des-sites-et-espaces-labellises-ffc-2026" target="_blank" rel="noopener noreferrer">Voir l'événement</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="eebf28b0-3c99-445e-ba13-396299452b03" />
+        <input type="hidden" name="subject" value="Nouveau message depuis le site" />
+        <input type="hidden" name="from_name" value="Site web" />
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="row">
+          <label>Prénom<input name="prenom" required maxlength="80" autocomplete="given-name" /></label>
+          <label>Nom<input name="nom" required maxlength="80" autocomplete="family-name" /></label>
+        </div>
+        <label>Votre e-mail<input type="email" name="email" required maxlength="120" autocomplete="email" /></label>
+        <label>Message<textarea name="message" rows="6" required maxlength="3000"></textarea></label>
+        <label class="check"><input type="checkbox" required /> J'accepte que ces informations soient utilisées pour répondre à ma demande (voir les mentions légales).</label>
+        <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+        <button class="cta" type="submit">Envoyer le message</button>
+        <p id="form-result" role="status" aria-live="polite"></p>
+      </form>
+      <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+      <script src="/contact.js" defer></script>
+    </div>
+  </section>
+
+  <section id="mentions-legales" class="legal">
+    <div class="wrap">
+      <h2>Mentions légales</h2>
+      <h3>Éditeur du site</h3>
+      <p>Raphaël BRARD, entrepreneur individuel EI<br />
+      E-mail : <span data-u="contact.brard.datascience" data-d="pm.me">contact.brard.datascience [arobase] pm.me</span><br />
+      Directeur de la publication : Raphaël BRARD</p>
+      <h3>Hébergeur</h3>
+      <p>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — https://github.com</p>
+      <h3>Propriété intellectuelle</h3>
+      <p>Les textes et visuels sont la propriété de l'éditeur, sauf mention contraire.</p>
+      <h3>Données personnelles</h3>
+      <p>Le formulaire collecte votre nom, prénom, e-mail et message, uniquement pour répondre à votre demande (base légale : votre consentement).
+       Les données sont transmises par e-mail à l'éditeur via le service Web3Forms ; le captcha hCaptcha vérifie que vous n'êtes pas un robot. 
+       Ces prestataires peuvent traiter des données hors de l'Union européenne. Les messages sont conservés 12 mois puis supprimés. Vous pouvez 
+       accéder à vos données, les rectifier, les effacer ou vous opposer à leur traitement en écrivant à 
+       <span data-u="contact.brard.datascience" data-d="pm.me">contact.brard.datascience [arobase] pm.me</span>, et saisir la CNIL en cas de litige. 
+       Ce site n'utilise pas de cookies de suivi.</p>
+    </div>
+  </section>
+  <script src="/mail.js" defer></script>
+</main>
+<footer>
+  © Raphaël BRARD ·
+  <a class="social" href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Raphaël BRARD (nouvel onglet)">LinkedIn</a>
+</footer>
+</body>
+</html>
