@@ -1,61 +1,136 @@
+/* ===== 1. VARIABLES & RESET ===== */
+/* Palette : indigo = principale, indigo2 = dégradé hero, deep = texte, bg = fond page, card = fond cartes, line = bordures, amber = accent boutons */
 :root{--indigo:#4b4be6;--indigo2:#6b6bf2;--deep:#1a1a52;--bg:#f7f6ff;--card:#fff;--line:#dcdaf7;--amber:#ffb347}
+/* Padding et bordure inclus dans la largeur des éléments */
 *{box-sizing:border-box}
+/* Défilement fluide + décalage des ancres sous le header collant */
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+/* Style de base de la page : fond, couleur du texte, police, interligne */
 body{margin:0;background:var(--bg);color:var(--deep);font:1.05rem/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+
+/* ===== 2. TYPOGRAPHIE ===== */
+/* Réglages communs aux titres */
 h1,h2,h3{line-height:1.1;margin:0 0 .6em;letter-spacing:-.02em}
+/* Titre principal : taille fluide, largeur limitée */
 h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:850;max-width:17ch}
+/* Titres de section */
 h2{font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:800}
+/* Titres de cartes / sous-sections */
 h3{font-size:1.2rem;font-weight:750}
+/* Couleur par défaut des liens */
 a{color:var(--indigo)}
+/* Contour visible à la navigation clavier (accessibilité) */
 :focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+
+/* ===== 3. MISE EN PAGE GÉNÉRALE ===== */
+/* Conteneur centré qui limite la largeur du contenu */
 .wrap{max-width:64rem;margin:auto;padding:0 1.25rem}
-header{position:sticky;top:0;z-index:5;background:#f7f6ffee;border-bottom:1px solid var(--line)}
-nav{display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;padding:.8rem 1.25rem;max-width:64rem;margin:auto}
-nav a{text-decoration:none;color:var(--deep);font-weight:600}
-nav a:hover{color:var(--indigo)}
-nav .brand{font-weight:850;color:var(--indigo);margin-right:auto}
-.hero{background:linear-gradient(135deg,var(--indigo),var(--indigo2));color:#fff;padding:4.5rem 0}
-.hero a{color:#fff}
+/* Espacement vertical des sections */
+section{padding:4.5rem 0}
+/* Dans les sections (hors hero), les enfants directs de .wrap ne sont pas limités en largeur */
+section:not(.hero)>.wrap>*{max-width:none}
+/* Grille responsive : colonnes de 16rem minimum */
+.grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+/* Variante avec colonnes plus étroites (~4 colonnes) */
+.grid.four{grid-template-columns:repeat(auto-fit,minmax(13.5rem,1fr))}
+/* Deux colonnes (texte + photo) */
 .two{display:grid;gap:2.5rem;grid-template-columns:1.3fr .7fr;align-items:center}
+/* Espace autour des sous-titres */
+.sub{margin:2rem 0 1rem}
+
+/* ===== 4. EN-TÊTE & NAVIGATION ===== */
+/* Bandeau collé en haut au défilement, fond légèrement transparent */
+header{position:sticky;top:0;z-index:5;background:#f7f6ffee;border-bottom:1px solid var(--line)}
+/* Barre de navigation : liens en ligne, retour à la ligne si besoin */
+nav{display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;padding:.8rem 1.25rem;max-width:64rem;margin:auto}
+/* Liens du menu sans soulignement */
+nav a{text-decoration:none;color:var(--deep);font-weight:600}
+/* Survol d'un lien du menu */
+nav a:hover{color:var(--indigo)}
+/* Nom / logo à gauche (margin-right:auto pousse le reste à droite) */
+nav .brand{font-weight:850;color:var(--indigo);margin-right:auto}
+/* Icônes de réseaux sociaux */
+nav .social{display:inline-flex;color:var(--indigo)}
+nav .social:hover{color:var(--deep)}
+nav .social svg{display:block}
+/* Sélecteur de langue (drapeau) */
+nav .lang{display:inline-flex;align-items:center;line-height:0}
+nav .lang img{display:block;width:30px;height:20px}
+nav .lang:hover img{filter:brightness(1.1)}
+
+/* ===== 5. HERO (bandeau d'accueil) ===== */
+/* Fond en dégradé indigo, texte blanc */
+.hero{background:linear-gradient(135deg,var(--indigo),var(--indigo2));color:#fff;padding:4.5rem 0}
+/* Liens blancs dans le hero */
+.hero a{color:#fff}
+/* Petit texte d'accroche au-dessus du titre */
 .kicker{font-weight:700;color:#ffe2b0;margin:0 0 .6rem}
+/* Paragraphe d'introduction plus grand */
 .lead{font-size:1.25rem}
+/* Photo de profil arrondie avec ombre */
 .photo{width:100%;height:auto;border-radius:18px;box-shadow:0 18px 40px #1a1a5255;display:block}
+
+/* ===== 6. COMPOSANTS ===== */
+/* Bouton d'appel à l'action : pilule ambre */
 .cta{display:inline-block;background:var(--amber);color:var(--deep)!important;padding:.75rem 1.4rem;border-radius:999px;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:750}
 .cta:hover{filter:brightness(1.06)}
-section{padding:4.5rem 0}
-section:not(.hero)>.wrap>*{max-width:none}
-.grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr))}
+/* Cartes et projets : fond blanc, bordure fine, coins arrondis */
 .card,.proj{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .card{padding:1.3rem}
+/* Image d'un projet : pleine largeur, ratio 16/10, recadrée */
 .proj img{width:100%;height:auto;display:block;aspect-ratio:16/10;object-fit:cover}
+/* Zone de texte sous l'image d'un projet */
 .proj div{padding:1.1rem 1.3rem 1.3rem}
+/* Étiquette arrondie (catégorie, statut) */
 .badge{display:inline-block;font-size:.8rem;font-weight:750;color:var(--indigo);background:#e4e3ff;border-radius:999px;padding:.1rem .7rem;margin-bottom:.5rem}
-.sub{margin:2rem 0 1rem}
-#contact{background:#fff;border-block:1px solid var(--line)}
-form{display:grid;gap:1rem;max-width:40rem}
-label{display:grid;gap:.3rem;font-weight:650}
-input,textarea{font:inherit;padding:.65rem;border:1px solid #b9b7ee;border-radius:10px;background:#fff;color:var(--deep)}
-.row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
-.check{display:flex;gap:.6rem;font-weight:400;align-items:flex-start}
-.check input{margin-top:.4rem}
-.hp{position:absolute;left:-9999px}
-#form-result{margin:0;min-height:1.6rem;font-weight:650}
-.legal{font-size:.95rem}
-.legal .wrap>*{max-width:70ch}
-footer{padding:2rem 1.25rem;text-align:center;font-size:.9rem}
-@media(max-width:700px){.two{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero{padding:3rem 0}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-.grid.four{grid-template-columns:repeat(auto-fit,minmax(13.5rem,1fr))}
+/* Phrase d'objectif mise en avant */
 .goal{font-size:1.15rem;margin-bottom:1.5rem}
+/* Pastille numérotée (étapes) */
 .num{display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--indigo);color:#fff;font-weight:800;margin-bottom:.6rem}
+/* Lien « en savoir plus » */
 .link{display:inline-block;margin-top:.4rem;font-weight:650}
 
+/* ===== 7. TECHNOLOGIES ===== */
+/* Liste de pastilles qui passent à la ligne */
 .tech-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem}
+/* Une pastille de technologie */
 .tech{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem .95rem;font-weight:650;color:var(--indigo)}
+/* Liste à puces, puces en indigo */
 .tech-ul{margin:.5rem 0 0;padding-left:1.2rem}
 .tech-ul li{margin:.3rem 0}
 .tech-ul li::marker{color:var(--indigo)}
 
-nav .social{display:inline-flex;color:var(--indigo)}
-nav .social:hover{color:var(--deep)}
-nav .social svg{display:block}
+/* ===== 8. CONTACT (formulaire) ===== */
+/* Section contact : fond blanc, bordures haut et bas */
+#contact{background:#fff;border-block:1px solid var(--line)}
+/* Formulaire : champs empilés */
+form{display:grid;gap:1rem;max-width:40rem}
+/* Chaque label empile son texte et son champ */
+label{display:grid;gap:.3rem;font-weight:650}
+/* Champs de saisie et zone de texte */
+input,textarea{font:inherit;padding:.65rem;border:1px solid #b9b7ee;border-radius:10px;background:#fff;color:var(--deep)}
+/* Prénom / Nom côte à côte */
+.row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+/* Case de consentement : case et texte alignés en haut */
+.check{display:flex;gap:.6rem;font-weight:400;align-items:flex-start}
+.check input{margin-top:.4rem}
+/* Champ anti-spam (honeypot) sorti de l'écran */
+.hp{position:absolute;left:-9999px}
+/* Message de retour après envoi (hauteur réservée pour éviter les sauts) */
+#form-result{margin:0;min-height:1.6rem;font-weight:650}
+/* Bouton d'envoi : largeur de son texte, aligné à gauche */
+form .cta{justify-self:start}
+
+/* ===== 9. MENTIONS LÉGALES & FOOTER ===== */
+/* Texte légèrement plus petit */
+.legal{font-size:.95rem}
+/* Largeur de lecture confortable (~70 caractères) */
+.legal .wrap>*{max-width:70ch}
+/* Pied de page centré */
+footer{padding:2rem 1.25rem;text-align:center;font-size:.9rem}
+
+/* ===== 10. RESPONSIVE & ACCESSIBILITÉ (en dernier pour surcharger) ===== */
+/* Mobile (≤ 700px) : colonnes empilées, hero moins haut */
+@media(max-width:700px){.two{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero{padding:3rem 0}}
+/* Pas de défilement animé si l'utilisateur préfère moins d'animations */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

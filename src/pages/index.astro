@@ -23,6 +23,8 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Raphaël BRARD – Data scientist freelance</title>
   <meta name="description" content="Data scientist freelance : de la compréhension du besoin à des modèles (clustering, classification, prédiction) compréhensibles et appropriables par les utilisateurs." />
+  <link rel="alternate" hreflang="fr" href="/" />
+  <link rel="alternate" hreflang="en" href="/en/" />
 </head>
 <body>
 <header>
@@ -33,6 +35,11 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
     <a href="#realisations">Réalisations</a>
     <a href="#contact">Contact</a>
     <a href="#mentions-legales">Mentions légales</a>
+    <div class="lang">
+      <a href="/en/" hreflang="en" lang="en" title="English" aria-label="View the site in English">
+        <img src="/images/flag-gb.svg" alt="" width="30" height="20" />
+      </a>
+    </div>
     <a class="social" href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Raphaël BRARD (nouvel onglet)">
       <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="4" fill="currentColor"/><circle cx="6.6" cy="6.7" r="1.9" fill="#fff"/><rect x="4.8" y="9.6" width="3.6" height="9.4" fill="#fff"/><path d="M10 9.6h3.4v1.4c.5-.9 1.5-1.6 3.1-1.6 2.9 0 4 1.8 4 4.6V19H17v-4.7c0-1.2-.4-2-1.5-2-1.2 0-1.9.8-1.9 2V19H10z" fill="#fff"/></svg>
     </a>
@@ -45,8 +52,8 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
       <div>
         <p class="kicker">Raphaël BRARD – Data scientist freelance</p>
         <h1>Pour des solutions data pertinentes, compréhensibles et appropriables par les utilisateurs</h1>
-        <p class="lead">Data scientist depuis plus de 5 ans, fort d'une expérience allant de la R&D (start-up E-Santé et Sanofi) à la création d'outils d'aide à la décision pour les collectivités territoriales. J'accompagne mes clients dans leurs projets data pour créer des outils personnalisés et adaptés à leurs besoins.</p>
-        <a class="cta" href="#contact">Me contacter</a>
+        <p class="lead">Avec plus de 5 ans d'expérience, de la création d'outils d'aide à la décision pour les collectivités territoriales à la R&amp;D (start-up e-santé et Sanofi), j'accompagne mes clients pour transformer leurs données en outils adaptés à leurs besoins.</p>
+        <a class="cta" href="#contact">Discuter de votre projet</a>
       </div>
       <!-- Remplacer par votre photo ou une image : déposer le fichier dans public/images/ -->
       <img class="photo" src="/images/hero.jpg" alt="Photo de profil " width="640" height="480" />
@@ -58,10 +65,10 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
       <h2>Services</h2>
       <p class="goal">Ma philosophie de travail repose sur une démarche en quatre temps, menée en étroite collaboration avec vous :</p>
       <div class="grid four">
-        <div class="card"><span class="num">1</span><h3>Comprendre le besoin</h3><p>Définitions des problématiques que vous souhaitez explorer. Puis, à partir des données les plus pertinentes à votre disposition, nous établissons notre plan d'action.</p></div>
-        <div class="card"><span class="num">2</span><h3>Explorer les données</h3><p>Je réalise des analyses statistiques et de la data visualisation sur les données utilisées dans l'étude. Je vous présente ensuite les premières relations entre variables et les premières conclusions.</p></div>
-        <div class="card"><span class="num">3</span><h3>Modéliser</h3><p>Grâce à l'étape 2, on peut transformer les données pour en extraire toute l'information utile et développer des modèles pertinents pour le projet : clustering, classification ou prédiction.</p></div>
-        <div class="card"><span class="num">4</span><h3>Accompagner</h3><p>Pour finir, l'ensemble de ces étapes est réalisé en étroite collaboration avec vos équipes, afin que les méthodes et solutions proposées soient comprises et appropriées par vos utilisateurs finaux.</p></div>
+        <div class="card"><span class="num">1</span><h3>Compréhension du besoin</h3><p>Nous définissons ensemble les questions auxquelles vous voulez répondre, puis je sélectionne les données les plus utiles à votre disposition pour construire le plan d'action.</p></div>
+        <div class="card"><span class="num">2</span><h3>Exploration des données</h3><p>J'analyse vos données et je les rends lisibles : cartes, graphiques, premiers constats. Vous voyez rapidement ce qu'elles disent de votre territoire.</p></div>
+        <div class="card"><span class="num">3</span><h3>Modélisation</h3><p>Je développe des méthodes adaptées à votre problématique (clustering, classification, prédiction), rigoureuses, reproductibles et maintenables dans le temps.</p></div>
+        <div class="card"><span class="num">4</span><h3>Intégration des solutions</h3><p>Je déploie les solutions dans votre environnement de travail et forme vos équipes, pour que les résultats soient compris et utilisés au quotidien.</p></div>
       </div>
     </div>
   </section>
@@ -90,7 +97,7 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
           <h3>Création de rendus</h3>
           <ul class="tech-ul">
             <li>Shiny (applications interactives)</li>
-            <li>LaTeX (rapports et documents)</li>
+            <li>LaTeX (rapports et présentation pdf)</li>
           </ul>
         </div>
         <div class="card">
@@ -147,7 +154,7 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
             <span class="badge">Présentation</span>
             <h3>Assises nationales des sites et espaces labellisés FFC 2026</h3>
             <p>Présentation des derniers travaux réalisés en collaboration entre Outdoorvision et le Département de l'Isère sur la définition des typologies de pratiques de sport outdoor sur son territoire.</p>
-            <a class="link" href="https://new.sportsnconnect.com/client/events/4qfsy66EWSssnKdNAJaGPT-assises-nationales-des-sites-et-espaces-labellises-ffc-2026" target="_blank" rel="noopener noreferrer">Voir l'événement</a>
+            <a class="link" href="https://territoires.ffc.fr/assises-nationales-sites-espaces-labellises-ffc-2026/" target="_blank" rel="noopener noreferrer">Voir l'événement</a>
           </div>
         </article>
       </div>
