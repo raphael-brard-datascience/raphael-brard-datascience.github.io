@@ -1,0 +1,222 @@
+---
+import '../../styles/global.css';
+// Content Security Policy (GitHub Pages does not allow HTTP headers: we use the meta tag).
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' https://web3forms.com https://hcaptcha.com https://*.hcaptcha.com",
+  "style-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com",
+  "img-src 'self' data: https://hcaptcha.com https://*.hcaptcha.com",
+  "frame-src https://hcaptcha.com https://*.hcaptcha.com",
+  "connect-src 'self' https://web3forms.com https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com",
+  "base-uri 'self'",
+  "object-src 'none'",
+].join('; ');
+const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content={csp} />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Raphaël BRARD – Freelance Data Scientist</title>
+  <meta name="description" content="Freelance data scientist: from understanding your needs to models (clustering, classification, prediction) that your users can understand and make their own." />
+  <link rel="alternate" hreflang="fr" href="/" />
+  <link rel="alternate" hreflang="en" href="/en/" />
+</head>
+<body>
+<header>
+  <nav aria-label="Main navigation">
+    <a class="brand" href="#home">Raphaël BRARD – Freelance Data Scientist</a>
+    <a href="#services">Services</a>
+    <a href="#technologies">Technologies</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#legal-notice">Legal notice</a>
+    <div class="lang">
+    <a class="lang" href="/" hreflang="fr" lang="fr" title="Voir le site en français" aria-label="Voir le site en français">
+      <img src="/images/flag-fr.svg" alt="" width="30" height="20" />
+    </a>
+    </div>
+    <a class="social" href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="Raphaël BRARD's LinkedIn profile (opens in a new tab)">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="4" fill="currentColor"/><circle cx="6.6" cy="6.7" r="1.9" fill="#fff"/><rect x="4.8" y="9.6" width="3.6" height="9.4" fill="#fff"/><path d="M10 9.6h3.4v1.4c.5-.9 1.5-1.6 3.1-1.6 2.9 0 4 1.8 4 4.6V19H17v-4.7c0-1.2-.4-2-1.5-2-1.2 0-1.9.8-1.9 2V19H10z" fill="#fff"/></svg>
+    </a>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <div class="wrap two">
+      <div>
+        <p class="kicker">Raphaël BRARD – Freelance Data Scientist</p>
+        <h1>Data solutions that are relevant, understandable and easy for users to adopt</h1>
+        <p class="lead">With over 5 years of experience, from decision-support tools for local authorities and visitor flow management to R&amp;D in a digital-health start-up and at Sanofi, I help my clients turn their data into tools tailored to their needs.</p>
+        <a class="cta" href="#contact">Discuss your project</a>
+      </div>
+      <img class="photo" src="/images/hero.jpg" alt="Profile photo" width="640" height="480" />
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>Services</h2>
+      <p class="goal">My way of working follows four steps, carried out in close collaboration with you:</p>
+      <div class="grid four">
+        <div class="card"><span class="num">1</span><h3>Understanding your needs</h3><p>We define together the questions you want to answer, then I select the most useful data available to build the action plan.</p></div>
+        <div class="card"><span class="num">2</span><h3>Data exploration</h3><p>You quickly get a clear picture of what your data reveals about your area, through maps, charts and first findings.</p></div>
+        <div class="card"><span class="num">3</span><h3>Modelling</h3><p>I develop methods suited to your problem (clustering, classification, prediction) that are rigorous, reproducible and maintainable over time.</p></div>
+        <div class="card"><span class="num">4</span><h3>Solution integration</h3><p>I deploy the solutions in your working environment and train your teams, so that results are understood and used day to day.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="technologies">
+    <div class="wrap">
+      <h2>Technologies</h2>
+      <p>I use tools suited to each stage of the project, and I document and version my work so that your teams can pick it up and keep developing it. My main tools:</p>
+      <div class="grid four">
+        <div class="card">
+          <h3>Programming languages</h3>
+          <ul class="tech-ul">
+            <li>Python</li>
+            <li>R</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Data management and processing</h3>
+          <ul class="tech-ul">
+            <li>SQL</li>
+            <li>pandas / geopandas (Python)</li>
+            <li>dplyr / tidyr (R)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Deliverables</h3>
+          <ul class="tech-ul">
+            <li>Shiny (interactive applications)</li>
+            <li>LaTeX (reports and documents)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Version control and collaboration</h3>
+          <ul class="tech-ul">
+            <li>GitHub / GitLab</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+
+      <h3 class="sub">Research &amp; development</h3>
+      <div class="grid">
+        <article class="proj">
+          <img src="/images/mdpi.png" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <div>
+            <span class="badge">Paper · Sensors, 2022</span>
+            <h3>Walking activity recognition from an IMU sensor</h3>
+            <p>This paper presents the walking recognition algorithm I developed from hip rotation time series, measured by an IMU sensor worn by individuals in real-life conditions.</p>
+            <a class="link" href="https://www.mdpi.com/1424-8220/22/9/3555" target="_blank" rel="noopener noreferrer">Read the paper (MDPI Sensors)</a>
+          </div>
+        </article>
+        <article class="proj">
+          <img src="/images/ecco.jpeg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <div>
+            <span class="badge">Congress · ECCO-JCC, 2023</span>
+            <h3>Tracking patient remission trajectories according to treatment</h3>
+            <p>Poster presenting our study that uses longitudinal clustering methods to detect groups of patients in a real life cohort. We define who respond more or less effectively depending of different treatments.</p>
+            <a class="link" href="https://academic.oup.com/ecco-jcc/article/17/Supplement_1/i852/7010230" target="_blank" rel="noopener noreferrer">View the poster abstract (ECCO-JCC, 2023)</a>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="sub">Decision support</h3>
+      <div class="grid">
+        <article class="proj">
+          <img src="/images/canoe_malin.svg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <div>
+            <span class="badge">Online tool</span>
+            <h3>Canoë Malin</h3>
+            <p>I developed a tool that predicts crowding on the different canoe routes in the Gorges de l'Ardèche area. It helps users choose the best route according to the predicted crowd levels.</p>
+            <a class="link" href="https://www.gorges-ardeche-pontdarc.fr/canoe-malin/?zone=3#Carte_1" target="_blank" rel="noopener noreferrer">See the tool (in French)</a><br />
+            <a class="link" href="https://www.youtube.com/watch?v=MJGLUoqzsRU" target="_blank" rel="noopener noreferrer">In the press: Le Dauphiné Libéré (video, in French)</a>
+          </div>
+        </article>
+        <article class="proj">
+          <img src="/images/projet.svg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <div>
+            <span class="badge">Congress · talk</span>
+            <h3>FFC 2026 national conference on labelled sites and areas</h3>
+            <p>Presentation of the latest work carried out jointly by Outdoorvision and the Isère Département on defining typologies of outdoor sports practices in its territory.</p>
+            <a class="link" href="https://territoires.ffc.fr/assises-nationales-sites-espaces-labellises-ffc-2026/" target="_blank" rel="noopener noreferrer">See the event (in French)</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <form
+        id="contact-form"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        data-msg-captcha="Please complete the captcha before sending."
+        data-msg-sending="Sending…"
+        data-msg-success="Message sent, thank you! I will get back to you shortly."
+        data-msg-error="Something went wrong, please try again."
+        data-msg-network="Unable to send the message. Please try again later."
+      >
+        <input type="hidden" name="access_key" value="eebf28b0-3c99-445e-ba13-396299452b03" />
+        <input type="hidden" name="subject" value="New message from the website (EN)" />
+        <input type="hidden" name="from_name" value="Website" />
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="row">
+          <label>First name<input name="first_name" required maxlength="80" autocomplete="given-name" /></label>
+          <label>Last name<input name="last_name" required maxlength="80" autocomplete="family-name" /></label>
+        </div>
+        <label>Your email<input type="email" name="email" required maxlength="120" autocomplete="email" /></label>
+        <label>Message<textarea name="message" rows="6" required maxlength="3000"></textarea></label>
+        <label class="check"><input type="checkbox" required /> I agree to my information being used to respond to my request (see the legal notice).</label>
+        <div class="h-captcha" data-captcha="true"></div>
+        <button class="cta" type="submit">Send message</button>
+        <p id="form-result" role="status" aria-live="polite"></p>
+      </form>
+      <script src="https://web3forms.com/client/script.js" async defer></script>
+      <script src="/contact.js" defer></script>
+    </div>
+  </section>
+
+  <section id="legal-notice" class="legal">
+    <div class="wrap">
+      <h2>Legal notice</h2>
+      <h3>Site publisher</h3>
+      <p>Raphaël BRARD, sole proprietor (<em>entrepreneur individuel</em>, EI)<br />
+      Email: <span data-u="contact.brard.datascience" data-d="pm.me">contact.brard.datascience [at] pm.me</span><br />
+      Publication director: Raphaël BRARD</p>
+      <h3>Hosting</h3>
+      <p>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States — https://github.com</p>
+      <h3>Intellectual property</h3>
+      <p>Unless otherwise stated, the texts and visuals are the property of the publisher.</p>
+      <h3>Personal data</h3>
+      <p>The form collects your first name, last name, email and message, solely to respond to your request (legal basis: your consent).
+       The data is sent by email to the publisher through the Web3Forms service; the hCaptcha captcha checks that you are not a robot.
+       These providers may process data outside the European Union. Messages are kept for 12 months and then deleted. You may
+       access, rectify or erase your data, or object to its processing, by writing to
+       <span data-u="contact.brard.datascience" data-d="pm.me">contact.brard.datascience [at] pm.me</span>, and you may lodge a complaint with the CNIL (the French data protection authority). 
+       This site does not use tracking cookies.</p>
+    </div>
+  </section>
+  <script src="/mail.js" defer></script>
+</main>
+<footer>
+  © Raphaël BRARD ·
+  <a class="social" href={linkedin} target="_blank" rel="noopener noreferrer" aria-label="Raphaël BRARD's LinkedIn profile (opens in a new tab)">LinkedIn</a>
+</footer>
+</body>
+</html>
