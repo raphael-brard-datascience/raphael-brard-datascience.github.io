@@ -11,6 +11,8 @@ const csp = [
   "connect-src 'self' https://web3forms.com https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com",
   "base-uri 'self'",
   "object-src 'none'",
+  // Forms may only send their data to Web3Forms (form-action does not inherit from default-src).
+  "form-action https://api.web3forms.com",
 ].join('; ');
 const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
 ---
