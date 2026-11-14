@@ -1,0 +1,133 @@
+---
+// Balises de référencement communes aux versions française et anglaise :
+// titre, description, URL canonique, hreflang, Open Graph (aperçu LinkedIn) et données structurées (JSON-LD).
+interface Props {
+  lang: 'fr' | 'en';
+  title: string;
+  description: string;
+  linkedin: string;
+}
+const { lang, title, description, linkedin } = Astro.props;
+
+// Les moteurs de recherche exigent des URL absolues (Astro.site vient de astro.config.mjs).
+const urls = {
+  fr: new URL('/', Astro.site).href,
+  en: new URL('/en/', Astro.site).href,
+};
+const canonical = urls[lang];
+const image = new URL('/images/hero.jpg', Astro.site).href;
+
+// Textes des données structurées, par langue.
+const texts = {
+  fr: {
+    locale: 'fr_FR',
+    altLocale: 'en_GB',
+    siteName: 'Raphaël BRARD – Data scientist freelance',
+    imageAlt: 'Raphaël BRARD, data scientist freelance',
+    jobTitle: 'Data scientist et data analyst freelance',
+    serviceName: 'Services data sur mesure et R&D en data science',
+    serviceTypes: [
+      'Data science sur mesure',
+      'Analyse de données',
+      'R&D en data science',
+      'Machine learning et modélisation prédictive',
+      "Outils d'aide à la décision",
+    ],
+    knowsAbout: [
+      'Data science', 'Analyse de données', 'Machine learning', 'R&D',
+      'Clustering', 'Classification', 'Modélisation prédictive', 'Séries temporelles',
+      'Données géospatiales', 'Aide à la décision', 'Python', 'R', 'SQL', 'Shiny',
+    ],
+  },
+  en: {
+    locale: 'en_GB',
+    altLocale: 'fr_FR',
+    siteName: 'Raphaël BRARD – Freelance Data Scientist',
+    imageAlt: 'Raphaël BRARD, freelance data scientist',
+    jobTitle: 'Freelance data scientist and data analyst',
+    serviceName: 'Custom data services and data science R&D',
+    serviceTypes: [
+      'Custom data science',
+      'Data analysis',
+      'Data science R&D',
+      'Machine learning and predictive modelling',
+      'Decision-support tools',
+    ],
+    knowsAbout: [
+      'Data science', 'Data analysis', 'Machine learning', 'R&D',
+      'Clustering', 'Classification', 'Predictive modelling', 'Time series',
+      'Geospatial data', 'Decision support', 'Python', 'R', 'SQL', 'Shiny',
+    ],
+  },
+}[lang];
+
+// La même personne et le même site sont décrits dans les deux langues : identifiants communs.
+const personId = `${urls.fr}#person`;
+const websiteId = `${urls.fr}#website`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: urls.fr,
+      name: 'Raphaël BRARD',
+      inLanguage: ['fr', 'en'],
+      publisher: { '@id': personId },
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Raphaël BRARD',
+      givenName: 'Raphaël',
+      familyName: 'BRARD',
+      jobTitle: texts.jobTitle,
+      description,
+      url: canonical,
+      image,
+      sameAs: [linkedin],
+      knowsLanguage: ['fr', 'en'],
+      knowsAbout: texts.knowsAbout,
+    },
+    {
+      '@type': 'Service',
+      '@id': `${canonical}#service`,
+      name: texts.serviceName,
+      description,
+      url: canonical,
+      inLanguage: lang,
+      serviceType: texts.serviceTypes,
+      provider: { '@id': personId },
+    },
+  ],
+};
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content="Raphaël BRARD" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="fr" href={urls.fr} />
+<link rel="alternate" hreflang="en" href={urls.en} />
+<link rel="alternate" hreflang="x-default" href={urls.fr} />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={texts.siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content={texts.locale} />
+<meta property="og:locale:alternate" content={texts.altLocale} />
+<meta property="og:image" content={image} />
+<meta property="og:image:width" content="800" />
+<meta property="og:image:height" content="800" />
+<meta property="og:image:alt" content={texts.imageAlt} />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+
+<!-- Données structurées : bloc de données (non exécuté), donc compatible avec la politique de sécurité (CSP). -->
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
