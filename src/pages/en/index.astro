@@ -1,5 +1,6 @@
 ---
 import '../../styles/global.css';
+import Seo from '../../components/Seo.astro';
 // Content Security Policy (GitHub Pages does not allow HTTP headers: we use the meta tag).
 const csp = [
   "default-src 'self'",
@@ -10,6 +11,8 @@ const csp = [
   "connect-src 'self' https://web3forms.com https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com",
   "base-uri 'self'",
   "object-src 'none'",
+  // Forms may only send their data to Web3Forms (form-action does not inherit from default-src).
+  "form-action https://api.web3forms.com",
 ].join('; ');
 const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
 ---
@@ -20,10 +23,12 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy" content={csp} />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>Raphaël BRARD – Freelance Data Scientist</title>
-  <meta name="description" content="Freelance data scientist: from understanding your needs to models (clustering, classification, prediction) that your users can understand and make their own." />
-  <link rel="alternate" hreflang="fr" href="/" />
-  <link rel="alternate" hreflang="en" href="/en/" />
+  <Seo
+    lang="en"
+    title="Freelance Data Scientist & Data Analyst, R&D – Raphaël BRARD"
+    description="Freelance data scientist and data analyst: custom R&D and data services, from data analysis to machine learning and decision-support tools."
+    linkedin={linkedin}
+  />
 </head>
 <body>
 <header>
@@ -49,12 +54,11 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
   <section id="home" class="hero">
     <div class="wrap two">
       <div>
-        <p class="kicker">Raphaël BRARD – Freelance Data Scientist</p>
-        <h1>Data solutions that are relevant, understandable and easy for users to adopt</h1>
+        <h1><span class="kicker">Raphaël BRARD – Freelance data scientist &amp; data analyst, custom R&amp;D</span> Data solutions that are relevant, understandable and easy for users to adopt</h1>
         <p class="lead">With over 5 years of experience, from decision-support tools for local authorities and visitor flow management to R&amp;D in a digital-health start-up and at Sanofi, I help my clients turn their data into tools tailored to their needs.</p>
         <a class="cta" href="#contact">Discuss your project</a>
       </div>
-      <img class="photo" src="/images/hero.jpg" alt="Profile photo" width="640" height="480" />
+      <img class="photo" src="/images/hero.jpg" alt="Raphaël BRARD, freelance data scientist" width="640" height="480" />
     </div>
   </section>
 
@@ -115,7 +119,7 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
       <h3 class="sub">Research &amp; development</h3>
       <div class="grid">
         <article class="proj">
-          <img src="/images/mdpi.png" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <img src="/images/mdpi.png" alt="Diagram of the algorithm: IMU sensor data acquisition, time series transformation, then walk detection and extraction" width="640" height="400" loading="lazy" decoding="async" />
           <div>
             <span class="badge">Paper · Sensors, 2022</span>
             <h3>Walking activity recognition from an IMU sensor</h3>
@@ -124,7 +128,7 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
           </div>
         </article>
         <article class="proj">
-          <img src="/images/ecco.jpeg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <img src="/images/ecco.jpeg" alt="Chart of patients' PMCS score trajectories over 52 weeks, by treatment response group" width="640" height="400" loading="lazy" decoding="async" />
           <div>
             <span class="badge">Congress · ECCO-JCC, 2023</span>
             <h3>Tracking patient remission trajectories according to treatment</h3>
@@ -137,7 +141,7 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
       <h3 class="sub">Decision support</h3>
       <div class="grid">
         <article class="proj">
-          <img src="/images/canoe_malin.svg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <img src="/images/canoe_malin.svg" alt="Canoë Malin, a tool predicting crowding on the canoe routes of the Gorges de l'Ardèche" width="640" height="400" loading="lazy" decoding="async" />
           <div>
             <span class="badge">Online tool</span>
             <h3>Canoë Malin</h3>

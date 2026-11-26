@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Seo from '../components/Seo.astro';
 // Politique de sécurité (GitHub Pages ne permet pas d'en-têtes HTTP : on utilise la balise meta).
 const csp = [
   "default-src 'self'",
@@ -10,6 +11,8 @@ const csp = [
   "connect-src 'self' https://web3forms.com https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com",
   "base-uri 'self'",
   "object-src 'none'",
+  // Les formulaires ne peuvent envoyer leurs données qu'à Web3Forms (form-action n'hérite pas de default-src).
+  "form-action https://api.web3forms.com",
 ].join('; ');
 // À remplacer par l'adresse exacte de votre profil LinkedIn
 const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
@@ -21,10 +24,12 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy" content={csp} />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <title>Raphaël BRARD – Data scientist freelance</title>
-  <meta name="description" content="Data scientist freelance : de la compréhension du besoin à des modèles (clustering, classification, prédiction) compréhensibles et appropriables par les utilisateurs." />
-  <link rel="alternate" hreflang="fr" href="/" />
-  <link rel="alternate" hreflang="en" href="/en/" />
+  <Seo
+    lang="fr"
+    title="Data scientist & data analyst freelance, R&D – Raphaël BRARD"
+    description="Data scientist et data analyst freelance : R&D et services data sur mesure, de l'analyse de données au machine learning et aux outils d'aide à la décision."
+    linkedin={linkedin}
+  />
 </head>
 <body>
 <header>
@@ -50,13 +55,12 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
   <section id="accueil" class="hero">
     <div class="wrap two">
       <div>
-        <p class="kicker">Raphaël BRARD – Data scientist freelance</p>
-        <h1>Pour des solutions data pertinentes, compréhensibles et appropriables par les utilisateurs</h1>
+        <h1><span class="kicker">Raphaël BRARD – Data scientist &amp; data analyst freelance, R&amp;D sur mesure</span> Pour des solutions data pertinentes, compréhensibles et appropriables par les utilisateurs</h1>
         <p class="lead">Avec plus de 5 ans d'expérience, de la création d'outils d'aide à la décision pour les collectivités territoriales à la R&amp;D (start-up e-santé et Sanofi), j'accompagne mes clients pour transformer leurs données en outils adaptés à leurs besoins.</p>
         <a class="cta" href="#contact">Discuter de votre projet</a>
       </div>
       <!-- Remplacer par votre photo ou une image : déposer le fichier dans public/images/ -->
-      <img class="photo" src="/images/hero.jpg" alt="Photo de profil " width="640" height="480" />
+      <img class="photo" src="/images/hero.jpg" alt="Raphaël BRARD, data scientist freelance" width="640" height="480" />
     </div>
   </section>
 
@@ -117,7 +121,7 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
       <h3 class="sub">Recherche &amp; développement</h3>
       <div class="grid">
         <article class="proj">
-          <img src="/images/mdpi.png" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <img src="/images/mdpi.png" alt="Schéma de l'algorithme : acquisition des données du capteur IMU, transformation des séries temporelles, puis détection et extraction de la marche" width="640" height="400" loading="lazy" decoding="async" />
           <div>
             <span class="badge">Article · Sensors, 2022</span>
             <h3>Reconnaissance de l'activité de marche à partir d'un capteur IMU</h3>
@@ -126,7 +130,7 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
           </div>
         </article>
         <article class="proj">
-          <img src="/images/ecco.jpeg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <img src="/images/ecco.jpeg" alt="Graphique des trajectoires du score PMCS des patients sur 52 semaines, par groupe de réponse au traitement" width="640" height="400" loading="lazy" decoding="async" />
           <div>
             <span class="badge">Congrès · ECCO-JCC, 2023</span>
             <h3>Suivi des trajectoires de rémission des patients selon les traitements</h3>
@@ -139,7 +143,7 @@ const linkedin = 'https://www.linkedin.com/in/raphael-brard/';
       <h3 class="sub">Aide à la décision</h3>
       <div class="grid">
         <article class="proj">
-          <img src="/images/canoe_malin.svg" alt="" width="640" height="400" loading="lazy" decoding="async" />
+          <img src="/images/canoe_malin.svg" alt="Canoë Malin, outil de prédiction de l'affluence sur les parcours de canoë des Gorges de l'Ardèche" width="640" height="400" loading="lazy" decoding="async" />
           <div>
             <span class="badge">Outil en ligne</span>
             <h3>Canoë Malin</h3>

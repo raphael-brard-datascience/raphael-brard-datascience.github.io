@@ -65,6 +65,8 @@ nav .lang:hover img{filter:brightness(1.1)}
 .hero a{color:#fff}
 /* Petit texte d'accroche au-dessus du titre */
 .kicker{font-weight:700;color:#ffe2b0;margin:0 0 .6rem}
+/* L'accroche est placée dans le h1 (mots-clés pour le référencement) mais garde l'apparence d'un petit texte */
+h1 .kicker{display:block;font-size:1.05rem;line-height:1.65;letter-spacing:normal}
 /* Paragraphe d'introduction plus grand */
 .lead{font-size:1.25rem}
 /* Photo de profil arrondie avec ombre */
